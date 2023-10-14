@@ -91,6 +91,14 @@ public class List<T>{
 		}
 		return objects;
 	}
+	//Verilen indexlerdeki nesnelerin yerlerini birbirleriyle değiştirir.
+	public void swap(int index1,int index2) {
+		indexChecking(index1);
+		indexChecking(index2);
+		T temp = arrayList[index1];
+		arrayList[index1] = arrayList[index2];
+		arrayList[index2] = temp;
+	}
 	//Index hataları değerlendirilir. Index negatif olmamalı ve liste sınırını aşmamalıdır.
 	private void indexChecking(int index) {
 		if (index > size - 1) {

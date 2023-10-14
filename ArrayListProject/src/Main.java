@@ -7,8 +7,7 @@ public class Main {
 		
 		liste.add(2);	
 		liste.add(4);
-		liste.set(1,12);
 
-		System.out.println(liste.findObjectsWithTypeReturnList(Integer.class).printedArray());
+		System.out.println(liste.find(0));
 	}
 }
