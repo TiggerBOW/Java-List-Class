@@ -7,7 +7,13 @@ public class Main {
 		
 		liste.add(2);	
 		liste.add(4);
+		liste.add("Ömer");
+		liste.add("Bilal");
+		
+		liste.removeAt(0);
+		liste.removeAt(0);
 
-		System.out.println(liste.find(0));
+		
+		System.out.println(liste.findObjectsWithTypeReturnList(String.class).printedArray());
 	}
 }

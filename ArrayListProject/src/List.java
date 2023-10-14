@@ -23,10 +23,15 @@ public class List<T>{
 		return size == 0;
 	}
 	//Listeye ekleme yapmayı sağlar, eğer kapasite aşıldıysa 10 birim daha arttırılır.
+	//Eğer veri kapasitenin 10 birim altından daha az ise kapasite 10 birim azaltılır.
 	//!10 değeri spesifik bir değer olup keyfidir.
 	public void add(T value) {
 		if (size == arrayList.length) {
-			int newSize = defaultSizeOfArray + 10;
+			int newSize = arrayList.length + 10;
+			arrayList = Arrays.copyOf(arrayList,newSize);
+		}
+		else if (size + 10 < arrayList.length) {
+			int newSize = arrayList.length - 10;
 			arrayList = Arrays.copyOf(arrayList,newSize);
 		}
 		arrayList[size] = value;
@@ -52,6 +57,14 @@ public class List<T>{
 	public void set(int index,T value) {
 		indexChecking(index);
 		arrayList[index] = value;
+	}
+	public void removeAt(int index) {
+		indexChecking(index);
+		arrayList[index] = null;
+		for (int i = index + 1;i < size;i++) {
+			arrayList[i - 1] = arrayList[i];
+		}
+		size--;
 	}
 	//Liste elemanlarını yazdırır.
 	public String printedArray() {
